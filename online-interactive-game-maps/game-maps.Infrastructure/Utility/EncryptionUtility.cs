@@ -15,12 +15,10 @@ namespace game_maps.Infrastructure.Utility
     public class EncryptionUtility
     {
         private readonly IOptions<JwtConfig> config;
-
         public EncryptionUtility(IOptions<JwtConfig> config)
         {
             this.config = config;
         }
-
         public string GetSHA256(string password, string salt)
         {
             using (var sha256 = SHA256.Create())
@@ -30,12 +28,10 @@ namespace game_maps.Infrastructure.Utility
                 return hash;
             }
         }
-
         public string GetNewSalt()
         {
             return Guid.NewGuid().ToString();
         }
-
         public string GetNewToken(Guid userId)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -47,10 +43,10 @@ namespace game_maps.Infrastructure.Utility
                 {
                         new Claim(JwtRegisteredClaimNames.UniqueName, userId.ToString()),
                 }),
-                
-                Audience= config.Value.ValidAudience,
-                Issuer= config.Value.ValidIssuers,
-                Expires = DateTime.UtcNow.AddMinutes(config.Value.ExpiresIn),
+
+                Audience = config.Value.ValidAudience,
+                Issuer = config.Value.ValidIssuers,
+                Expires = DateTime.UtcNow.AddHours(config.Value.ExpiresIn),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 

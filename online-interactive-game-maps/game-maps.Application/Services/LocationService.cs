@@ -26,7 +26,8 @@ namespace game_maps.Application.Services
                 location.Type = Core.Types.LocationType.Mark;
                 location.MapId = map.Id;
                 var res = await context.Locations.AddAsync(location);
-                return mapper.Map<LocationViewModel>(res);
+                await context.SaveChangesAsync();
+                return mapper.Map<LocationViewModel>(res.Entity);
             }
             return null!;
         }
@@ -42,12 +43,23 @@ namespace game_maps.Application.Services
         }
         public async Task<IEnumerable<LocationViewModel>> GetAll(string slug, Guid? userId)
         {
-            var res = await context.Maps
-                .Include(x => x.Locations)
-                .SingleOrDefaultAsync(x => x.Slug == slug);
-            if (res is not null)
-                return mapper.Map<IEnumerable<LocationViewModel>>(res.Locations);
-            return null!;
+            var res = await (
+                from map in context.Maps
+                join location in context.Locations on map.Id equals location.MapId
+                from categorie in context.Categories.Where(x => location.CategorieId == x.Id).DefaultIfEmpty()
+                from marker in context.UserMarks.Where(x => location.Id == x.LocationId && x.UserId == userId).DefaultIfEmpty()
+                where map.Slug == slug && (location.UserId == null || location.UserId == userId)
+                select new LocationViewModel()
+                {
+                    Id = location.Id,
+                    Icon = categorie.Icon,
+                    Longitude = location.Longitude,
+                    Latitude = location.Latitude,
+                    IsDone = marker == null ? false : marker.IsDone,
+                    CategorieName = categorie.Title,
+                }).ToListAsync();
+
+            return res;
         }
         public async Task<UserLocationMarkViewModel> MarkLocation(UserLocationMarkViewModel model, Guid userId)
         {
