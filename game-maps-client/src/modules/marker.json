@@ -1,0 +1,723 @@
+{
+    "bobblehead": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 0,
+        "pixelRatio": 2
+    },
+    "holotape": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 88,
+        "pixelRatio": 2
+    },
+    "perk_magazine": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 176,
+        "pixelRatio": 2
+    },
+    "armor": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 264,
+        "pixelRatio": 2
+    },
+    "fusion_core": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 352,
+        "pixelRatio": 2
+    },
+    "mini_nuke": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 440,
+        "pixelRatio": 2
+    },
+    "nuka_cherry": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 528,
+        "pixelRatio": 2
+    },
+    "nuka_cola": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 616,
+        "pixelRatio": 2
+    },
+    "power_armor": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 704,
+        "pixelRatio": 2
+    },
+    "recipe": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 792,
+        "pixelRatio": 2
+    },
+    "weapon": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 880,
+        "pixelRatio": 2
+    },
+    "airfield": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 968,
+        "pixelRatio": 2
+    },
+    "bos": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 1056,
+        "pixelRatio": 2
+    },
+    "brownstone": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 1144,
+        "pixelRatio": 2
+    },
+    "bunker": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 1232,
+        "pixelRatio": 2
+    },
+    "camper": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 1320,
+        "pixelRatio": 2
+    },
+    "car": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 1408,
+        "pixelRatio": 2
+    },
+    "castle": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 1496,
+        "pixelRatio": 2
+    },
+    "cave": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 1584,
+        "pixelRatio": 2
+    },
+    "church": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 1672,
+        "pixelRatio": 2
+    },
+    "city": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 1760,
+        "pixelRatio": 2
+    },
+    "country_club": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 1848,
+        "pixelRatio": 2
+    },
+    "custom_house": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 1936,
+        "pixelRatio": 2
+    },
+    "disciples": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 2024,
+        "pixelRatio": 2
+    },
+    "door": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 2112,
+        "pixelRatio": 2
+    },
+    "drive_in": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 2200,
+        "pixelRatio": 2
+    },
+    "elevated_highway": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 2288,
+        "pixelRatio": 2
+    },
+    "encampment": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 2376,
+        "pixelRatio": 2
+    },
+    "factory": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 2464,
+        "pixelRatio": 2
+    },
+    "farm": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 2552,
+        "pixelRatio": 2
+    },
+    "filling_station": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 2640,
+        "pixelRatio": 2
+    },
+    "forested": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 2728,
+        "pixelRatio": 2
+    },
+    "galactic": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 2816,
+        "pixelRatio": 2
+    },
+    "goodneighbor": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 2904,
+        "pixelRatio": 2
+    },
+    "graveyard": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 2992,
+        "pixelRatio": 2
+    },
+    "hospital": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 3080,
+        "pixelRatio": 2
+    },
+    "industrial_dome": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 3168,
+        "pixelRatio": 2
+    },
+    "industrial_stacks": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 3256,
+        "pixelRatio": 2
+    },
+    "industry": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 3344,
+        "pixelRatio": 2
+    },
+    "institute": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 3432,
+        "pixelRatio": 2
+    },
+    "junkyard": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 3520,
+        "pixelRatio": 2
+    },
+    "landmark": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 3608,
+        "pixelRatio": 2
+    },
+    "low_rise": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 3696,
+        "pixelRatio": 2
+    },
+    "metro": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 3784,
+        "pixelRatio": 2
+    },
+    "military_base": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 3872,
+        "pixelRatio": 2
+    },
+    "minutemen": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 3960,
+        "pixelRatio": 2
+    },
+    "miscellaneous": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 4048,
+        "pixelRatio": 2
+    },
+    "monorail": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 4136,
+        "pixelRatio": 2
+    },
+    "monument": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 4224,
+        "pixelRatio": 2
+    },
+    "observatory": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 4312,
+        "pixelRatio": 2
+    },
+    "office": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 4400,
+        "pixelRatio": 2
+    },
+    "operators": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 4488,
+        "pixelRatio": 2
+    },
+    "pack": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 4576,
+        "pixelRatio": 2
+    },
+    "pier": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 4664,
+        "pixelRatio": 2
+    },
+    "point_of_interest": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 4752,
+        "pixelRatio": 2
+    },
+    "police_station": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 4840,
+        "pixelRatio": 2
+    },
+    "pond_lake": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 4928,
+        "pixelRatio": 2
+    },
+    "prydwen": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 5016,
+        "pixelRatio": 2
+    },
+    "quarry": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 5104,
+        "pixelRatio": 2
+    },
+    "quest": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 5192,
+        "pixelRatio": 2
+    },
+    "radio_tower": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 5280,
+        "pixelRatio": 2
+    },
+    "radioactive_area": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 5368,
+        "pixelRatio": 2
+    },
+    "raider_settlement": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 5456,
+        "pixelRatio": 2
+    },
+    "railroad": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 5544,
+        "pixelRatio": 2
+    },
+    "railroad_faction": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 5632,
+        "pixelRatio": 2
+    },
+    "ride": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 5720,
+        "pixelRatio": 2
+    },
+    "ruins": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 5808,
+        "pixelRatio": 2
+    },
+    "safari": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 5896,
+        "pixelRatio": 2
+    },
+    "satellite": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 5984,
+        "pixelRatio": 2
+    },
+    "school": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 6072,
+        "pixelRatio": 2
+    },
+    "sentinel": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 6160,
+        "pixelRatio": 2
+    },
+    "settlement": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 6248,
+        "pixelRatio": 2
+    },
+    "sewer": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 6336,
+        "pixelRatio": 2
+    },
+    "shipwreck": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 6424,
+        "pixelRatio": 2
+    },
+    "skyscraper": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 6512,
+        "pixelRatio": 2
+    },
+    "submarine": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 6600,
+        "pixelRatio": 2
+    },
+    "swan_pond": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 6688,
+        "pixelRatio": 2
+    },
+    "synth_head": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 6776,
+        "pixelRatio": 2
+    },
+    "town": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 6864,
+        "pixelRatio": 2
+    },
+    "urban_ruins": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 6952,
+        "pixelRatio": 2
+    },
+    "vault": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 7040,
+        "pixelRatio": 2
+    },
+    "misc": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 7128,
+        "pixelRatio": 2
+    },
+    "placeholder_11": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 7216,
+        "pixelRatio": 2
+    },
+    "placeholder_12": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 7304,
+        "pixelRatio": 2
+    },
+    "placeholder_13": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 7392,
+        "pixelRatio": 2
+    },
+    "placeholder_14": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 7480,
+        "pixelRatio": 2
+    },
+    "placeholder_15": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 7568,
+        "pixelRatio": 2
+    },
+    "placeholder_16": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 7656,
+        "pixelRatio": 2
+    },
+    "placeholder_17": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 7744,
+        "pixelRatio": 2
+    },
+    "placeholder_18": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 7832,
+        "pixelRatio": 2
+    },
+    "placeholder_19": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 7920,
+        "pixelRatio": 2
+    },
+    "placeholder_21": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 8008,
+        "pixelRatio": 2
+    },
+    "placeholder_22": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 8096,
+        "pixelRatio": 2
+    },
+    "placeholder_23": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 8184,
+        "pixelRatio": 2
+    },
+    "placeholder_24": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 8272,
+        "pixelRatio": 2
+    },
+    "placeholder_25": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 8360,
+        "pixelRatio": 2
+    },
+    "placeholder_26": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 8448,
+        "pixelRatio": 2
+    },
+    "placeholder_27": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 8536,
+        "pixelRatio": 2
+    },
+    "placeholder_28": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 8624,
+        "pixelRatio": 2
+    },
+    "placeholder_29": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 8712,
+        "pixelRatio": 2
+    },
+    "placeholder_30": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 8800,
+        "pixelRatio": 2
+    },
+    "region": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 8888,
+        "pixelRatio": 2
+    },
+    "workbench": {
+        "width": 66,
+        "height": 88,
+        "x": 0,
+        "y": 8976,
+        "pixelRatio": 2
+    }
+}

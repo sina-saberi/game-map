@@ -1,0 +1,235 @@
+ @font-face {
+     font-family: 'Estedad';
+     src: url("/public/assets/fonts/estedad/woff2/Estedad-ExtraLight.woff2"),
+         url('/public/assets/fonts/estedad/ttf/Estedad-ExtraLight.ttf') format('truetype');
+     font-weight: 200;
+ }
+
+ @font-face {
+     font-family: 'Estedad';
+     src: url("/public/assets/fonts/estedad/woff2/Estedad-Light.woff2"),
+         url('/public/assets/fonts/estedad/ttf/Estedad-Light.ttf') format('truetype');
+     font-weight: 300;
+ }
+
+ @font-face {
+     font-family: 'Estedad';
+     src: url("/public/assets/fonts/estedad/woff2/Estedad-Regular.woff2"),
+         url('/public/assets/fonts/estedad/ttf/Estedad-Regular.ttf') format('truetype');
+     font-weight: 400;
+ }
+
+ @font-face {
+     font-family: 'Estedad';
+     src: url("/public/assets/fonts/estedad/woff2/Estedad-Medium.woff2"),
+         url('/public/assets/fonts/estedad/ttf/Estedad-Medium.ttf') format('truetype');
+     font-weight: 500;
+ }
+
+ @font-face {
+     font-family: 'Estedad';
+     src: url("/public/assets/fonts/estedad/woff2/Estedad-SemiBold.woff2"),
+         url('/public/assets/fonts/estedad/ttf/Estedad-SemiBold.ttf') format('truetype');
+     font-weight: 600;
+ }
+
+ @font-face {
+     font-family: 'Estedad';
+     src: url("/public/assets/fonts/estedad/woff2/Estedad-Bold.woff2"),
+         url('/public/assets/fonts/estedad/ttf/Estedad-Bold.ttf') format('truetype');
+     font-weight: 700;
+ }
+
+ @font-face {
+     font-family: 'Estedad';
+     src: url("/public/assets/fonts/estedad/woff2/Estedad-ExtraBold.woff2"),
+         url('/public/assets/fonts/estedad/ttf/Estedad-ExtraBold.ttf') format('truetype');
+     font-weight: 800;
+ }
+
+ @font-face {
+     font-family: 'Estedad';
+     src: url("/public/assets/fonts/estedad/woff2/Estedad-Black.woff2"),
+         url('/public/assets/fonts/estedad/ttf/Estedad-Black.ttf') format('truetype');
+     font-weight: 900;
+ }
+
+ /* persian number */
+ @font-face {
+     font-family: 'persianNumber';
+     src: url('/public/assets/fonts/estedad/Estedad-FD[KSHD,wght].ttf') format('truetype');
+ }
+
+ :root {
+     font-family: 'Estedad';
+ }
+
+ body {
+     background-color: theme("colors.gray.100");
+ }
+
+ input[disabled] {
+     outline: none !important;
+     border: none;
+     background-color: inherit;
+ }
+
+ input {
+     outline: none !important;
+     border: none;
+ }
+
+ .hover {
+     transition: all 50ms ease-in-out;
+     cursor: pointer;
+ }
+
+ @keyframes slide-down {
+     from {
+         transform: translateY(-100%);
+     }
+
+     to {
+         transform: translateY(0%);
+     }
+ }
+
+ @keyframes slide-up {
+     from {
+         transform: translateY(100%);
+     }
+
+     to {
+         transform: translateY(0%);
+     }
+ }
+
+ @keyframes slide-left {
+     from {
+         transform: translateX(100%);
+     }
+
+     to {
+         transform: translateX(0%);
+     }
+ }
+
+ @keyframes slide-right {
+     from {
+         transform: translateX(-100%);
+     }
+
+     to {
+         transform: translateX(0%);
+     }
+ }
+
+
+ .story--pages--home {
+     position: relative;
+ }
+
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+
+ @layer components {
+     .corleon-grid-header {
+         background-color: theme("colors.rose.500");
+         color: theme("colors.white");
+         padding: theme("padding.1") theme("padding.2");
+         border-radius: theme("borderRadius.DEFAULT") theme("borderRadius.DEFAULT") 0 0;
+     }
+
+     .grid-body {
+         margin-top: theme("margin.2");
+         padding: theme("padding.1") theme("padding.2");
+     }
+
+ }
+
+ .f-container {
+     margin: theme("margin.3") 0;
+ }
+
+ .form-toolbar {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     gap: 5px;
+ }
+
+ .form-toolbar button,
+ .f-field_container-title>button,
+ .field-extra-value div button,
+ .field-extra-value>button {
+     border-radius: theme("borderRadius.md");
+     padding: theme("padding.1") theme("padding.2");
+     color: theme("colors.white");
+     background-color: theme("colors.green.500");
+ }
+
+ .f-form_container-build_field {
+     background-color: theme("colors.teal.500") !important;
+ }
+
+ .f-field_container-title>button,
+ .field-extra-value div button {
+     background-color: theme("colors.red.500");
+     font-size: theme("fontSize.xs");
+     margin: 0 theme("margin.2");
+ }
+
+ .fg-field {
+     display: flex;
+     flex-direction: column;
+     margin-top: theme("margin.4");
+ }
+
+ .fg-field>span {
+     font-size: theme("fontSize.sm");
+     font-weight: theme("fontWeight.semibold");
+ }
+
+ .fg-field>div>div {
+     border: theme("borderWidth.DEFAULT") solid #ddd;
+     border-radius: theme("borderRadius.md");
+     padding: theme("padding[0.5]") theme("padding.2");
+ }
+
+ .fg-field>div>div input,
+ .fg-field>div>div select {
+     width: 100%;
+     outline: none;
+     background-color: transparent;
+     font-size: 13px;
+ }
+
+ .field-extra-value>button {
+     border: theme("borderWidth.DEFAULT") solid #ddd;
+     background-color: unset;
+     color: black;
+     margin: theme("margin.3") 0;
+     font-size: theme("fontSize.xs");
+ }
+
+ .field-extra-value .fg-field {
+     flex-direction: row;
+ }
+
+ .f-field_container>div {
+     display: grid;
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+     gap: 5px;
+ }
+
+ .fg-field {
+     grid-column: span 1 / span 1;
+     gap: 5px;
+ }
+
+ .leaflet-div-icon {
+    background:  unset !important; 
+    border: unset !important;
+}
