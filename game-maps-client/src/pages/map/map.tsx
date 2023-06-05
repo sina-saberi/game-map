@@ -7,18 +7,21 @@ import { unwrapResult } from '@reduxjs/toolkit';
 import { GetGroups } from '../../redux/groupSlice/groupSlice';
 import Icon from '../../components/Icon';
 import Leaflet from 'leaflet';
-import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
 import "leaflet/dist/leaflet.css";
 import Locations from '../../modules/Locations';
 import Select from '../../components/Select';
 import { ICategorie } from '../../models/categorie';
 import { useCookies } from 'react-cookie';
+import { IGroups } from '../../models/group';
 
 const Map = () => {
     const { slug } = useParams<{ slug: string }>();
     const [menu, setMenu] = React.useState(true);
     const [filters, setFilters] = React.useState<{ [name: string]: boolean }>({});
+    const [search, setSearch] = React.useState<string>("");
     const [track, setTrack] = React.useState<string>("");
+    const [showDone, setShowDone] = React.useState<boolean>(true);
     const groups = useAppSelector(s => s.groups);
     const location = useAppSelector(s => s.location);
     const map = useAppSelector(s => s.map);
@@ -51,16 +54,16 @@ const Map = () => {
 
     const getTrack = React.useCallback(() => {
         let cat: ICategorie | undefined;
-        if (track == "") return "";
+        if (track === "") return "";
         groups.data?.forEach(x => {
             let a = x.categories.find(c => c.title === track);
             if (a)
                 cat = a;
         })
         if (cat && location.data)
-            return `${cat.title} ${cat.count}/${location.data?.filter(x => x.categorieName == cat?.title && x.isDone).length}`
+            return `${cat.title} ${cat.count}/${location.data?.filter(x => x.categorieName === cat?.title && x.isDone).length}`
         else return ""
-    }, [track, location]);
+    }, [track, location, groups.data]);
 
     const onAddLocation = () => {
         if (MapRef.current)
@@ -74,10 +77,18 @@ const Map = () => {
             }))
     }
 
+    const onGroupClick = (group: IGroups) => {
+        setFilters(x => ({
+            ...x, ...group.categories.reduce((p, c) => {
+                p[c.title] = x[c.title] === undefined ? false : !x[c.title];
+                return p
+            }, {} as { [name: string]: boolean })
+        }))
+    }
 
     return (
         <div className='w-full h-full'>
-            <div style={{ zIndex: 999 }} className={`h-full transition-all fixed left-0 ${menu ? "translate-x-0" : "-translate-x-full"} bg-white shadow-md w-[350px] border-t`}>
+            <div style={{ zIndex: 99999 }} className={`h-full transition-all fixed left-0 ${menu ? "translate-x-0" : "-translate-x-full"} bg-white shadow-md w-[350px] border-t`}>
                 <div className='relative h-full'>
                     <button onClick={() => setMenu(!menu)} className='absolute bg-white top-1/4 right-0 translate-x-10 text-5xl p-3'>
                         {menu ? "<" : ">"}
@@ -85,38 +96,60 @@ const Map = () => {
                     <div className='max-h-full overflow-y-auto h-full p-4'>
                         <div className='flex w-full justify-around'>
                             {map.data && map.data.map((x, i) =>
-                                <button onClick={() => ChangeMapSetting(x.slug)} className={` px-2 py-1 text-sm underline rounded-lg ${map.detail?.slug == x.slug ? "bg-yellow-100  shadow-md" : ""}`} key={i}>{x.title}</button>
+                                <button onClick={() => ChangeMapSetting(x.slug)} className={` px-2 py-1 text-sm underline rounded-lg ${map.detail?.slug === x.slug ? "bg-yellow-100  shadow-md" : ""}`} key={i}>{x.title}</button>
                             )}
                         </div>
-                        {groups.data &&
-                            <ul className='w-full'>
-                                {groups.data.map((group, index) =>
-                                    <li key={index} className='w-full'>
-                                        <button
-                                            className='font-bold text-sm mt-5 mb-3' >{group.title}</button>
-                                        {group.categories &&
-                                            <ul className='w-full grid gap-2 grid-cols-2'>
-                                                {group.categories.map((cat, index) =>
-                                                    <li className='col-span-1' key={index}>
-                                                        <button
-                                                            onClick={() => setFilters(p => ({ ...p, [cat.title]: p[cat.title] === undefined ? false : !p[cat.title] }))}
-                                                            className={`${filters[cat.title] == false ? "line-through opacity-75" : ""} text-gray-700 w-full text-sm flex items-center justify-between whitespace-nowrap gap-2`}>
-                                                            <span className='flex'>
-                                                                <span className='min-w-[20px]'>
-                                                                    <Icon icon={cat.icon} />
+                        <div>
+                            <div>
+                                <div className='gap-3 flex mt-5'>
+                                    <button
+                                        onClick={() => groups.data &&
+                                            setFilters(groups.data.reduce((p, c) => {
+                                                c.categories.forEach(x => {
+                                                    p[x.title] = false
+                                                })
+                                                return p
+                                            }, {} as { [name: string]: boolean }))}
+                                        className='hover:shadow-xl text-sm shadow-md rounded-md px-2'>hidde all</button>
+                                    <button onClick={() => setFilters({})} className='hover:shadow-xl text-sm shadow-md rounded-md px-2'>show all</button>
+                                    <button onClick={() => setShowDone(!showDone)} className={`hover:shadow-xl text-sm shadow-md rounded-md px-2 ${showDone ? "" : "bg-yellow-100"}`}>{showDone ? "dont show done" : "show dones"}</button>
+                                </div>
+                                <div className='border flex rounded-md overflow-hidden my-4 shadow p-1 text-xs'>
+                                    <input value={search} onChange={(e) => setSearch(e.target.value)} className='w-full h-full' placeholder='search' />
+                                    {search && <button onClick={() => setSearch("")}>clear</button>}
+                                </div>
+                            </div>
+                            {groups.data &&
+                                <ul className='w-full'>
+                                    {groups.data.map((group, index) =>
+                                        <li key={index} className='w-full'>
+                                            <button
+                                                onClick={() => onGroupClick(group)}
+                                                className='font-bold text-sm mt-5 mb-3 hover:shadow-md px-2 rounded-md' >{group.title}</button>
+                                            {group.categories &&
+                                                <ul className='w-full grid gap-2 grid-cols-2'>
+                                                    {group.categories.map((cat, index) =>
+                                                        <li className='col-span-1' key={index}>
+                                                            <button
+                                                                onClick={() => setFilters(p => ({ ...p, [cat.title]: p[cat.title] === undefined ? false : !p[cat.title] }))}
+                                                                className={`${filters[cat.title] === false ? "line-through opacity-75" : ""} hover:shadow-lg px-1 text-gray-700 w-full text-sm flex items-center justify-between whitespace-nowrap gap-2`}>
+                                                                <span className='flex'>
+                                                                    <span className='min-w-[20px]'>
+                                                                        <Icon icon={cat.icon} />
+                                                                    </span>
+                                                                    <span className=''>{cat.title}</span>
                                                                 </span>
-                                                                <span className=''>{cat.title}</span>
-                                                            </span>
-                                                            <span className=''>{cat.count}</span>
-                                                        </button>
-                                                    </li>
-                                                )}
-                                            </ul>
-                                        }
-                                    </li>
-                                )}
-                            </ul>
-                        }
+                                                                <span className=''>{cat.count}</span>
+                                                            </button>
+                                                        </li>
+                                                    )}
+                                                </ul>
+                                            }
+                                        </li>
+                                    )}
+                                </ul>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
@@ -173,7 +206,7 @@ const Map = () => {
                         ]}
 
                         url={`https://tiles.mapgenie.io${map.detail.path}/{z}/{x}/{y}.${map.detail.extension}`} />
-                    <Locations filter={filters} />
+                    <Locations search={search} showDone={showDone} filter={filters} />
                 </MapContainer>
             )}
         </div>

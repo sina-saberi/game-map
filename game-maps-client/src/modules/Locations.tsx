@@ -6,8 +6,9 @@ import markers from "./marker.json";
 import LocationDetail from './LocationDetail';
 import { updateLocation } from '../redux/locationSlice/locationSlice';
 import CreateNewLcationComponent from './CreateNewLcationComponent';
+import { ILocation } from '../models/location';
 
-const Locations: React.FC<{ onZoomChange?: (zoom: number) => void, filter: { [name: string]: boolean } }> = ({ onZoomChange, filter }) => {
+const Locations: React.FC<{ search: string, showDone: boolean, onZoomChange?: (zoom: number) => void, filter: { [name: string]: boolean } }> = ({ search, showDone, onZoomChange, filter }) => {
     const locations = useAppSelector(x => x.location);
     const dispatch = useAppDispatch()
     const [detail, setDetail] = React.useState<number | undefined>(undefined);
@@ -17,10 +18,24 @@ const Locations: React.FC<{ onZoomChange?: (zoom: number) => void, filter: { [na
     });
     const defaultMarkImage = `<img style="width:26px;height:40px;object-fit:cover;right: 6px;position: relative;" src="/assets/images/custom-marker.png"/>`
 
+
+    const filters = (x: ILocation) => {
+        if (x.categorieName) {
+            return (filter[x.categorieName] === undefined || filter[x.categorieName])
+                && (!showDone ? x.isDone !== true : true)
+        }
+        return true;
+    }
+    const searchfilter = (x: ILocation) => {
+        return true
+    }
+
     return (
         <React.Fragment>
-            {locations.data && locations.data?.filter(x => x.categorieName ? filter[x.categorieName] == undefined ? true : filter[x.categorieName] : true)
-                ?.map((loc, index) => {
+            {locations.data && locations.data
+                .filter(filters)
+                .filter(searchfilter)
+                .map((loc, index) => {
                     const icon = markers[loc.icon as keyof typeof markers];
                     return <Marker
                         opacity={loc.isDone ? 0.4 : 1.0}
@@ -56,7 +71,4 @@ const Locations: React.FC<{ onZoomChange?: (zoom: number) => void, filter: { [na
         </React.Fragment>
     )
 }
-
-
-
-export default Locations
+export default React.memo(Locations)
