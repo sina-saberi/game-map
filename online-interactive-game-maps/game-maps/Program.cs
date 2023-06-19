@@ -2,6 +2,7 @@ using game_maps.Application;
 using game_maps.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
+using SixLabors.ImageSharp.Web.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,7 +50,11 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddImageSharp();
+
 var app = builder.Build();
+
+app.UseImageSharp();
 
 app.UseSwagger();
 app.UseSwaggerUI();

@@ -57,6 +57,7 @@ namespace game_maps.Application.Services
                     Latitude = location.Latitude,
                     IsDone = marker == null ? false : marker.IsDone,
                     CategorieName = categorie.Title,
+                    title = location.Title,
                 }).ToListAsync();
 
             return res;

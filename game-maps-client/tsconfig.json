@@ -22,6 +22,6 @@
   },
   "include": [
     "src",
-    "typing.d.ts"
+    "typing.d.ts",
   ]
 }

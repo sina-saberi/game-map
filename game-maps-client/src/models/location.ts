@@ -9,5 +9,6 @@ export interface ILocation {
     icon?: string,
     type?: "location" | "mark"
     marker?: IMarker;
-    isDone: boolean
+    isDone: boolean;
+    title: string
 }

@@ -1,14 +1,15 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks/useRedux'
-import { DeleteLocation, GetLocation, SetMarker, deleteLocation } from '../redux/locationSlice/locationSlice';
+import { DeleteLocation, GetLocation, SetMarker } from '../redux/locationSlice/locationSlice';
 import { unwrapResult } from '@reduxjs/toolkit';
-import { useNavigate } from 'react-router-dom';
+import { useMap } from 'react-leaflet';
 
-const LocationDetail: React.FC<{ id: number, onClose?: () => void }> = ({ id }) => {
+const LocationDetail: React.FC<{ id: number, onClose?: () => void }> = ({ id, onClose }) => {
     const [checked, setChekec] = React.useState<boolean>(false);
     const state = useAppSelector(x => x.location.detail);
+    const filter = useAppSelector(x => x.filters.data);
+    const map = useMap();
     const dispatch = useAppDispatch();
-    const nav = useNavigate();
 
     const getData = React.useCallback(async () => {
         try {
@@ -22,9 +23,13 @@ const LocationDetail: React.FC<{ id: number, onClose?: () => void }> = ({ id }) 
     }, [getData]);
 
     const onChangeStatus = React.useCallback((isDone: boolean) => {
-        dispatch(SetMarker({ isDone, locationId: id }))
-        setChekec(isDone)
-    }, [dispatch, id])
+        dispatch(SetMarker({ isDone, locationId: id }));
+        setChekec(isDone);
+        onClose && onClose();
+        if (filter && !filter.showDone) {
+            map.closePopup();
+        }
+    }, [dispatch, onClose, id, map, filter])
 
     if (state && state.data)
         return (
@@ -37,7 +42,7 @@ const LocationDetail: React.FC<{ id: number, onClose?: () => void }> = ({ id }) 
                                 <div>
                                     {state.data.medias.map((media, index) => (
                                         <div key={index}>
-                                            <img src={`https://media.mapgenie.io/storage/media/${media.fileName}`} />
+                                            <img alt='' src={`https://media.mapgenie.io/storage/media/${media.fileName}`} />
                                         </div>
                                     ))}
                                 </div>
@@ -46,7 +51,7 @@ const LocationDetail: React.FC<{ id: number, onClose?: () => void }> = ({ id }) 
                         <p>
                             {state.data.description}
                         </p>
-                        {state.data.type != "mark" &&
+                        {state.data.type !== "mark" &&
                             <div>
                                 <label className='select-none font-bold flex gap-3 my-3 justify-center items-center'>
                                     mark as faund
@@ -56,7 +61,7 @@ const LocationDetail: React.FC<{ id: number, onClose?: () => void }> = ({ id }) 
                                 </label>
                             </div>
                         }
-                        {state.data.type == "mark" &&
+                        {state.data.type === "mark" &&
                             <div className='flex gap-2'>
                                 <button onClick={() => { dispatch(DeleteLocation(id)) }} className='bg-red-600 px-2 rounded-md py-1 text-white'>remove location</button>
                             </div>

@@ -1,7 +1,12 @@
 import Axios from "axios";
 
 const axios = Axios.create({
-    baseURL: "https://192.168.150.67:8080/api",
+    baseURL: `/api`,
 });
 
-export default axios
+axios.interceptors.request.use(x => {
+    x.baseURL = `${window.settings.url}/api` || "/api"
+    return x;
+})
+
+export default axios;

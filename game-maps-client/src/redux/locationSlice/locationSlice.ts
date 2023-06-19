@@ -6,8 +6,6 @@ import { IMarker } from "../../models/marker";
 
 const initialState: InitialState<ILocation[], { data?: ILocationDetail, loading: boolean }> = {};
 
-
-
 export const GetLocations = createAsyncThunk("getLocations", async (slug: string) => {
     let res = await axios.get<ILocation[]>("/Location/GetLocations", { params: { slug } });
     return res.data;
@@ -58,7 +56,7 @@ const location = createSlice({
         updateLocation: (state, action: PayloadAction<ILocation>) => {
             if (state.data)
                 state.data = [
-                    ...state.data.filter(x => x.id != action.payload.id), action.payload]
+                    ...state.data.filter(x => x.id !== action.payload.id), action.payload]
         }
     },
     extraReducers(builder) {
@@ -95,14 +93,14 @@ const location = createSlice({
         });
         builder.addCase(SubmitLocation.fulfilled, (state, action) => {
             if (state.data) {
-                let arr = state.data.filter(x => x.id != action.meta.arg.id);
+                let arr = state.data.filter(x => x.id !== action.meta.arg.id);
                 state.data = [...arr, action.payload];
             }
 
         });
         builder.addCase(DeleteLocation.fulfilled, (state, action) => {
             if (state.data)
-                state.data = state.data.filter(x => x.id != action.meta.arg);
+                state.data = state.data.filter(x => x.id !== action.meta.arg);
         })
     },
 })

@@ -9,6 +9,7 @@ namespace game_maps.Application.ViewModels.Location
     public class LocationViewModel
     {
         public int Id { get; set; }
+        public string title { get; set; }
         public float Latitude { get; set; }
         public float Longitude { get; set; }
         public string? CategorieName { get; set; }

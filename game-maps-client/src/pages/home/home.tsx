@@ -24,7 +24,7 @@ const Home = () => {
                             <Link to={`/map/${item.slug}`}>
                                 <div className='flex flex-col justify-center items-center'>
                                     <div className='w-52 h-52 rounded-lg overflow-hidden'>
-                                        <img className='w-full h-full object-cover' src={`https://192.168.150.67:8080/${item.image}`} />
+                                        <img className='w-full h-full object-cover' alt={item.image} src={`${window.settings.url}/${item.image}`} />
                                     </div>
                                     <h4 className='font-bold mt-4 text-2xl'>
                                         {item.title}
